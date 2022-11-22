@@ -19,11 +19,4 @@ $user="threnaud1";
 $password="achanger";
 $db = new PDO($dsn,$user,$password);
 
-$query = "SELECT * FROM Etudiant"; 
-$test=$db->prepare($query);
-$test->execute();
-
-$result=$test->fetchall();
-
-
 ?> 
