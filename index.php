@@ -13,17 +13,6 @@ Autoload::charger();
 
 $cont = new Controleur();
 
-
-$dsn="mysql:host=londres;dbname=dbthrenaud1";
-$user="threnaud1";
-$password="achanger";
-$db = new PDO($dsn,$user,$password);
-
-$query = "SELECT * FROM Etudiant"; 
-$test=$db->prepare($query);
-$test->execute();
-
-$result=$test->fetchall();
-
+require_once(__DIR__.'/config/vuephp1.php');
 
 ?> 
