@@ -7,9 +7,8 @@ class Simplemodel
 //vide
 
 
-function get_data() : string
-{
-return "Mon modèle ne fait rien";
+function get_data() : string{
+    return "Mon modèle ne fait rien";
 }
 
 //fin modèles
