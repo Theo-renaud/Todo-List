@@ -23,6 +23,6 @@ class Connection extends PDO {
     }
 
     public function getResults() : array {
-    return $this->stmt->fetchall();
+        return $this->stmt->fetchall();
     }
 }

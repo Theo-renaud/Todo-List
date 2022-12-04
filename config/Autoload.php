@@ -35,13 +35,14 @@ class Autoload
         global $rep;
         $filename = $class.'.php';
         $dir =array('modeles/','./','config/','controleur/');
+        
         foreach ($dir as $d){
-        $file=$rep.$d.$filename; 
+            $file=$rep.$d.$filename; 
         //echo $file;
-        if (file_exists($file))
-        {
-            include $file;
-        }
+            if (file_exists($file))
+            {
+                include $file;
+            }
         }
     
     }
