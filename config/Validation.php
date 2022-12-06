@@ -13,7 +13,7 @@ class Validation {
         }
     }
 
-    static function val_form(string &$nom, string &$age, array &$dVueEreur) {
+    static function val_form(string &$nom, array &$dVueEreur){
         if (!isset($nom)||$nom=="") {
             $dVueEreur[] =	"pas de nom";
             $nom="";
@@ -22,10 +22,6 @@ class Validation {
             $dVueEreur[] =	"testative d'injection de code (attaque sécurité)";
             $nom="";
 
-        }
-        if (!isset($age)||$age==""||!filter_var($age, FILTER_VALIDATE_INT)) {
-            $dVueEreur[] =	"pas d'age ";
-            $age=0;
         }
     }
 }

@@ -11,9 +11,9 @@ $rep=__DIR__.'/../';
 
 //BD
 
-$base="sasa";
-$login="";
-$mdp="";
+$base="dbthrenaud1";
+$login="threnaud1";
+$mdp="achanger";
 
 //Vues
 
