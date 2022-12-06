@@ -4,7 +4,8 @@ class Autoload
 {
     private static $_instance = null;
 
-    public static function charger(){
+    public static function charger()
+    {
         if(null !== self::$_instance) {
             throw new RuntimeException(sprintf('%s is already started', __CLASS__));
         }
