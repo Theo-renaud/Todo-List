@@ -1,45 +1,42 @@
 <?php
 
-
 class UserGateway
 {
-    private PDO $pdo;
+    private Connection $co;
 
-    public function __construct(PDO $pdo)
+    public function __construct()
     {
-        $this->pdo = $pdo;
+        $dsn = 'mysql:host=londres;dbname=dbthrenaud1';
+        $user = 'threnaud1';
+        $pass = 'achanger';
+
+        $this->co = new Connection($dsn,$user,$pass);
     }
 
-    // public function getById(int $id): ?Utilisateur
-    // {
-    //     $req = $this->pdo->prepare('SELECT * FROM Utilisateur WHERE id = :id');
-    //     $req->execute(['id' => $id]);
-    //     $req->setFetchMode(PDO::FETCH_CLASS, Utilisateur::class);
-    //     $user = $req->fetch();
-    //     return $user === false ? null : $user;
-    // }
-
-    public function getByLogin(string $login): ?Utilisateur
+    public function getByNom(string $nom)//: ?Utilisateur
     {
-        $req = $this->pdo->prepare('SELECT * FROM registered_user WHERE login = :login;');
-        $req->execute(['login' => $login]);
-        $req->setFetchMode(PDO::FETCH_CLASS, Utilisateur::class);
-        $user = $req->fetch();
-        return $user === false ? null : $user;
+        $req = "SELECT * FROM Utilisateur WHERE nom = :nom";
+        $this->co->executeQuery($req,array(':nom' => array($nom,PDO::PARAM_STR)));
+        $user = $this->co->getResults();
+        foreach($user as $row){
+            $utilisateur[] = new Utilisateur($row['id'],$row['nom'],$row['mdp'],$row['isAdmin']);
+            foreach($utilisateur as $u){
+                return $u === false ? null : $u;
+            }
+        }
     }
 
     // public function insert(Utilisateur $user): bool
     // {
-    //     $req = $this->pdo->prepare("INSERT INTO registered_user (login, password, permissions) Values(:login, :password, :permissions)");
+    //     $req = $this->pdo->prepare("INSERT INTO utilisateur (nom, mdp, idAdmin) Values(:nom, :mdp, :isAdmin)");
     //     try {
-    //         $req->execute(['login' => $user->getLogin(), 'password' => $user->getPassword(), 'permissions' => $user->getPermissions()]);
+    //         $req->execute(['nom' => $user->getNom(), 'mdp' => $user->getMdp(), 'idAdmin' => $user->getPerm()]);
     //     } catch (\PDOException $ex) {
     //         if ($this->config->isUniqueConstraintViolation($ex)) {
     //             return false;
     //         }
     //         throw $ex;
     //     }
-    //     $user->setId(intval($this->pdo->lastInsertId()));
     //     return true;
     // }
 }
