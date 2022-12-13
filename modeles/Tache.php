@@ -2,12 +2,23 @@
 
 class Tache
 {
+    private int $id;
     private string $nom;
     private string $description;
     private int $idListe;
 
+    function __construct(int $id, string $nom, string $description, int $idListe)
+    {   
+        $this->id = $id;
+        
+    }
+
     public function setIdListe(int $idListe): void {
         $this->idListe = $idListe;
+    }
+
+    public function getIdListe(): int {
+        return $this->idListe;
     }
 
     public function setNom(string $nom): void {
@@ -18,8 +29,8 @@ class Tache
         return $this->nom;
     }
 
-    public function getIdListe(): int {
-        return $this->idListe;
+    public function getId(): int {
+        return $this->id;
     }
 }
 
