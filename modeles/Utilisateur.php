@@ -46,10 +46,10 @@ class Utilisateur{
         }
     }
 
-    public function setMdp(string $mdp){
+    // public function setMdp(string $mdp){
 
-        $this->mdp = password_hash($mdp,PASSWORD_DEFAULT);
-    } 
+    //     $this->mdp = password_hash($mdp,PASSWORD_DEFAULT);
+    // } 
 }
 
 ?>

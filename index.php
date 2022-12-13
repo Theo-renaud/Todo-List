@@ -10,9 +10,9 @@ Autoload::charger();
 $userControlleur = new UserControlleur();
 $userControlleur->connexion();
 
-$router = new AltoRouter();
+//$router = new AltoRouter();
 
-$router->map('GET', '/', 'UserControlleur');
+//$router->map('GET', '/', 'UserControlleur');
 // $router->map( 'GET|POST', '/user/[i:id]/[a:action]?', 'UserController');
 
 // $id = 0;

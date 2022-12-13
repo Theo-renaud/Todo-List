@@ -23,7 +23,6 @@ class UserControlleur
             }
             else{
                 $_SESSION['idUtilisateur'] = $user->getId();
-                print_r($_SESSION);
             } 
         }
         else{
