@@ -22,7 +22,8 @@ class UserControlleur
                 echo "MAUVAIS MDP";
             }
             else{
-                $_SESSION['idUtilisateur'] = $user->getId();
+                $_SESSION['isAdmin'] = $user->isAdmin();
+                echo "Vous êtes connecté avec l'identifiant : " . $user->getNom();
             } 
         }
         else{

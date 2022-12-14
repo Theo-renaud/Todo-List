@@ -10,19 +10,21 @@ class Tache
     function __construct(int $id, string $nom, string $description, int $idListe)
     {   
         $this->id = $id;
-        
+        $this->nom = $nom;
+        $this->description = $description;
+        $this->idListe = $idListe;
     }
 
     public function setIdListe(int $idListe): void {
         $this->idListe = $idListe;
     }
 
-    public function getIdListe(): int {
-        return $this->idListe;
-    }
-
     public function setNom(string $nom): void {
         $this->nom = $nom;
+    }
+
+    public function getIdListe(): int {
+        return $this->idListe;
     }
 
     public function getNom(): string {
@@ -31,6 +33,10 @@ class Tache
 
     public function getId(): int {
         return $this->id;
+    }
+
+    public function getDescription(): int {
+        return $this->description;
     }
 }
 

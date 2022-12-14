@@ -6,7 +6,14 @@ class Liste {
     private int $idUtilisateur;
     private bool $isPrivate;
     private Tache $lesTaches;
-    
+
+    function __construct(int $id, string $nom, string $idUtilisateur, int $isPrivate)
+    {   
+        $this->id = $id;
+        $this->nom = $nom;
+        $this->description = $idUtilisateur;
+        $this->idListe = $isPrivate;
+    }
 
     public function setNom(string $nom): void {
         $this->nom = $nom;
