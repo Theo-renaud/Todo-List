@@ -13,9 +13,9 @@ class Autoload
         self::$_instance = new self();
 
 
-        if(!spl_autoload_register(array(self::$_instance, '_autoload'), false)) {
-            throw RuntimeException(sprintf('%s : Could not start the autoload', __CLASS__));
-        }
+        // if(!spl_autoload_register(array(self::$_instance, '_autoload'), false)) {
+        //     throw new RuntimeException(sprintf('%s : Could not start the autoload', __CLASS__));
+        // }
     }
 
     public static function shutDown()
