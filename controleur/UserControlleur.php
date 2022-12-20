@@ -23,6 +23,7 @@ class UserControlleur
             }
             else{
                 $_SESSION['idUtilisateur'] = $user->getId();
+                echo "Vous êtes connecté avec le login : " . $user->getNom();
             } 
         }
         else{

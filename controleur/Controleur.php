@@ -11,8 +11,14 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = explode('/', $uri);
 
 // Get the controller and action from the request URL
-$controller = $uri[1];
-$action = $uri[2];
+if (empty($uri[1]) || empty($uri[2])){
+  $controller = null;
+  $action = null;
+}
+else {
+  $controller = $uri[1];
+  $action = $uri[2];
+} 
 
 // If the controller and action are not defined, use the default values
 if (!$controller) $controller = 'accueil';

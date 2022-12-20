@@ -11,7 +11,7 @@
     <li><a href="#">About Me</a></li>
     <li><a href="#">My Work</a></li>
     <li><a href="#">Contact Me</a></li>
-    <li><a href="#">Log In</a></li>
+    <li><a href="/user/connexion">Log In</a></li>
   </ul>
 </body>
 </html>
