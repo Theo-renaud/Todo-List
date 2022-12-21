@@ -25,6 +25,18 @@ class ListeGateway
             }
         }
     }
+
+    public function ListePrive(int $id){
+        $req="SELECT * FROM Liste WHERE isprivate=1 AND userid=:id";
+        $this->co->executeQuery($req,array(':id' => array($id,PDO::PARAM_INT)));
+        $listes=$this->co->getResults();
+        foreach($listes as $row){
+            $Listes[]=new Liste($row['id'],$row['nom'],$row['idUser'],$row['isPrivate'],$row['LesTaches']);
+            foreach($Listes as $l){
+                return $l === false ? null : $l;
+            }
+        } 
+    }
 } 
 
 ?>
