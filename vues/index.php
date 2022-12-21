@@ -2,7 +2,7 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="/vues/style/index.css">
-  <title>My Home Page</title>
+  <title>Accueil</title>
 </head>
 <body>
   <h1>Bienvenue sur Foukka</h1>
@@ -20,5 +20,7 @@
     <li><a href="#">A propos de Foukka (WIP)</a></li>
     <li><a href="/user/connexion">Log In</a></li>
   </ul>
+
+  
 </body>
 </html>
