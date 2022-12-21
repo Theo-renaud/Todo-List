@@ -34,7 +34,6 @@ class Validation {
 
         $nom = htmlspecialchars($nom);
     }
-
 }
 ?>
 

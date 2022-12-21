@@ -18,4 +18,5 @@ echo "<a href='/accueil/accueil'>Retour à l'accueil</a>";
 
 
 
-</body> </html>
+</body> 
+</html>

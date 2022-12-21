@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 class Tache
@@ -43,5 +44,4 @@ class Tache
         return $this->description;
     }
 }
-
 ?>

@@ -9,7 +9,6 @@ class Autoload
         if(null !== self::$_instance) {
             throw new RuntimeException(sprintf('%s is already started', __CLASS__));
         }
-
         self::$_instance = new self();
 
 
@@ -21,11 +20,9 @@ class Autoload
     public static function shutDown()
     {
         if(null !== self::$_instance) {
-
             if(!spl_autoload_unregister(array(self::$_instance, '_autoload'))) {
                 throw new RuntimeException('Could not stop the autoload');
             }
-
             self::$_instance = null;
         }
     }

@@ -3,16 +3,17 @@
 class Liste {
     private int $id;
     private string $nom;
-    private int $idUtilisateur;
-    private bool $isPrivate;
+    private int $idUser;
+    private int $isPrivate;
     private Tache $lesTaches;
-    
-    function __construct(int $id, string $nom, int $idUtilisateur, bool $isPrivate, Tache $lesTaches) {
+
+    function __construct(int $id, string $nom, int $idUser, int $isPrivate,Tache $lesTaches)
+    {
         $this->id = $id;
         $this->nom = $nom;
-        $this->idUtilisateur = $idUtilisateur;
+        $this->idUser = $idUser;
         $this->isPrivate = $isPrivate;
-        $this->lesTaches = $lesTaches;
+        $this->lesTaches= $lesTaches;
     }
 
     public function setNom(string $nom): void {
