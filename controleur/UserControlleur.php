@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 require __DIR__ . "/../gateway/UserGateway.php";
 require __DIR__ . "/Connexion.php";
+require __DIR__ . "/../config/Validation.php";
+
 
 class UserControlleur
 {   
@@ -12,7 +14,7 @@ class UserControlleur
     
     public function connexion()
     {
-        session_start();
+        
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             $this->userGateway = new UserGateway();
@@ -27,7 +29,8 @@ class UserControlleur
             }
             else{
                 $_SESSION['idUtilisateur'] = $user->getId();
-                echo'<a href="/accueil/accueil">';
+                $_SESSION['nomUtilisateur'] = $user->getNom();
+                header("Location: /");
             } 
         }
         else{

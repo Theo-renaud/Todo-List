@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 // Set up an array of controllers and their corresponding action methods
 $controllers = array(
   'user' => ['connexion', 'deconnexion'],
