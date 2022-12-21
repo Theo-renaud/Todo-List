@@ -13,10 +13,10 @@ class TacheGateway
         $this->co = new Connection($dsn,$user,$pass);
     }
 
-    public function getTaches(int $idListe): ?array
+    public function getTachesByIdListe(int $idListe): ?array
     {
         $req = "SELECT * FROM Tache WHERE idListe = :idListe";
-        $this->co->executeQuery($req,array(':nom' => array($idListe,PDO::PARAM_STR)));
+        $this->co->executeQuery($req,array(':idListe' => array($idListe,PDO::PARAM_STR)));
         $taches = $this->co->getResults();
         foreach($taches as $row){
             $listeDeTaches[] = new Tache($row['id'],$row['nom'],$row['description'],$row['idListe']);

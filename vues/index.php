@@ -5,8 +5,8 @@
   <title>My Home Page</title>
 </head>
 <body>
-  <h1>Bienvenue Foukka</h1>
-  <p>Foukka est une to-do list comme il en existe des milliers. Celle-ci n'a aucune particularité que les autres n'ont pas.</p>
+  <h1>Bienvenue sur Foukka</h1>
+  <p>Foukka est une to-do list comme il en existe des milliers. Celle-ci n'a aucune particularité qui la distingue des autres To-Do list.</p>
   <p>
     <?php 
       if(isset($_SESSION["nomUtilisateur"])):
@@ -17,9 +17,7 @@
     ?>
   </p>
   <ul>
-    <li><a href="#">About Me</a></li>
-    <li><a href="#">My Work</a></li>
-    <li><a href="#">Contact Me</a></li>
+    <li><a href="#">A propos de Foukka (WIP)</a></li>
     <li><a href="/user/connexion">Log In</a></li>
   </ul>
 </body>
