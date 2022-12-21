@@ -8,6 +8,7 @@ require __DIR__ . "/Connexion.php";
 class UserControlleur
 {   
     private UserGateway $userGateway;
+    private Validation $validation;
     
     public function connexion()
     {
@@ -16,6 +17,9 @@ class UserControlleur
 
             $this->userGateway = new UserGateway();
             
+            $this->validation = new Validation();
+            $this->validation->validationConnexion($_POST['nom'],$_POST['mdp']);
+
             $user = $this->userGateway->getByNom($_POST['nom']);
 
             if(password_verify($_POST['mdp'],$user->getmdp()) == FALSE){
@@ -23,7 +27,7 @@ class UserControlleur
             }
             else{
                 $_SESSION['idUtilisateur'] = $user->getId();
-                echo "Vous êtes connecté avec le login : " . $user->getNom();
+                echo'<a href="/accueil/accueil">';
             } 
         }
         else{

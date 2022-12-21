@@ -7,9 +7,9 @@ class UserGateway
 
     public function __construct()
     {
-        $dsn = 'mysql:host=londres;dbname=dbthrenaud1';
-        $user = 'threnaud1';
-        $pass = 'achanger';
+        $dsn = 'mysql:host=127.0.0.1;dbname=todolist;port=3306;charset=utf8';
+        $user = 'root';
+        $pass = 'root';
 
         $this->co = new Connection($dsn,$user,$pass);
     }

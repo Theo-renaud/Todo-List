@@ -2,36 +2,37 @@
 
 class Validation {
 
-    static function val_action($action) {
+    // static function val_action($action) {
 
-        if (!isset($action)) {
-            throw new Exception('pas d\'action');
-            //on pourrait aussi utiliser
-            //$action = $_GET['action'] ?? 'no';
-            // This is equivalent to:
-            //$action =  if (isset($_GET['action'])) $action=$_GET['action']  else $action='no';
-        }
-    }
+    //     if (!isset($action)) {
+    //         throw new Exception('pas d\'action');
+    //         //on pourrait aussi utiliser
+    //         //$action = $_GET['action'] ?? 'no';
+    //         // This is equivalent to:
+    //         //$action =  if (isset($_GET['action'])) $action=$_GET['action']  else $action='no';
+    //     }
+    // }
 
-    static function val_form(string &$nom, string &$age, array &$dVueEreur) {
+    static function validationConnexion(string &$nom, string &$mdp) {
 
-        if (!isset($nom)||$nom=="") {
-            $dVueEreur[] =	"pas de nom";
-            $nom="";
-        }
-
-        if ($nom != filter_var($nom, FILTER_SANITIZE_STRING))
-        {
-            $dVueEreur[] =	"testative d'injection de code (attaque sécurité)";
-            $nom="";
-
+        if (empty($nom)) {
+            $dVueEreur[] = "Vous devez saisir un nom d'utilisateur";
         }
 
-        if (!isset($age)||$age==""||!filter_var($age, FILTER_VALIDATE_INT)) {
-            $dVueEreur[] =	"pas d'age ";
-            $age=0;
+        if (empty($mdp)) {
+            $dVueEreur[] = "Vous devez saisir un mot de passe";
         }
 
+        if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $nom)) {
+            $dVueEreur[] = "Le nom d'utilisateur ne doit pas contenir de caractères spéciaux";
+        }
+
+        if (!empty($dVueEreur)) {
+            require __DIR__ . '/../vues/erreur.php';
+            exit(0);
+        }
+
+        $nom = htmlspecialchars($nom);
     }
 
 }
