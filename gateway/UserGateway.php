@@ -1,5 +1,6 @@
 <?php
 
+require __DIR__ . "/../modeles/Utilisateur.php";
 class UserGateway
 {
     private Connection $co;
