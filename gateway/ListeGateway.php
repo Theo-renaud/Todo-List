@@ -25,8 +25,8 @@ class ListeGateway
         foreach($listes as $row){
             $Tache=$this->tacheGateway->getTachesByIdListe($row['id']);
             $Listes[]=new Liste($row['id'],$row['nom'],$row['userid'],$row['isprivate'],$Tache);
-            return $Listes;
         }
+        return $Listes;
     }
 } 
 

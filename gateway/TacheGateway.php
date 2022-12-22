@@ -22,12 +22,12 @@ class TacheGateway
         $taches = $this->co->getResults();
         foreach($taches as $row){
             $listeDeTaches[] = new Tache($row['id'],$row['nom'],$row['description'],$row['idliste']);
-            if(empty($listeDeTaches)){
-                return null;
-            }
-            else {
-                return $listeDeTaches;
-            }
+        }
+        if(empty($listeDeTaches)){
+            return null;
+        }
+        else {
+            return $listeDeTaches;
         }
     }
 }

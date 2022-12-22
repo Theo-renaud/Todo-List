@@ -9,7 +9,12 @@ h1 {
     text-align: center;
 }
 
-ul {
+h1 {
+    color: purple;
+    text-align: center;
+}
+
+.nav {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -17,11 +22,11 @@ ul {
     background-color: purple;
 }
 
-li {
+.navItem {
     float: left;
 }
 
-li a {
+.navItem .itemLink {
     display: block;
     color: pink;
     text-align: center;
@@ -29,6 +34,11 @@ li a {
     text-decoration: none;
 }
 
-li a:hover {
+.navItem .itemLink:hover {
     background-color: rgb(219, 72, 219);
+}
+
+.listeLink {
+    color: purple;
+    text-decoration: none;
 }

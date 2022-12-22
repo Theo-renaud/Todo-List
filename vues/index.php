@@ -16,17 +16,21 @@
       endif; 
     ?>
   </p>
-  <ul>
-    <li><a href="#">A propos de Foukka (WIP)</a></li>
-    <li><a href="/user/connexion">Log In</a></li>
+  <ul class="nav">
+    <li class="navItem"><a class="itemLink" href="#">A propos de Foukka (WIP)</a></li>
+    <li class="navItem"><a class="itemLink" href="/user/connexion">Log In</a></li>
   </ul>
   
-  <?php
-    foreach($dVueListe as $liste){
-      echo '<h4><a href= "/liste/liste">' . $liste->getNom() . '</a></h4>';
-    }
-      
-  ?>
+  <h2>Les listes publiques</h2>
+  <ul>
+    <?php
+      foreach($dVueListe as $liste):
+    ?>
+      <li><a class="listeLink" href="/liste/liste"><?= $liste->getNom() ?></a></li>
+    <?php
+      endforeach;
+    ?>
+  </ul>
 
 </body>
 </html>
