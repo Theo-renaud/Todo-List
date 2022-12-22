@@ -4,7 +4,8 @@ session_start();
 // Set up an array of controllers and their corresponding action methods
 $controllers = array(
   'user' => ['connexion', 'deconnexion'],
-  'accueil' => ['accueil', 'error']
+  'accueil' => ['accueil', 'error'],
+  'liste' => ['liste', 'error']
 );
 
 // Parse the request URL to determine the controller and action

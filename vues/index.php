@@ -20,7 +20,13 @@
     <li><a href="#">A propos de Foukka (WIP)</a></li>
     <li><a href="/user/connexion">Log In</a></li>
   </ul>
-
   
+  <?php
+    foreach($dVueListe as $liste){
+      echo '<h4><a href= "/liste/liste">' . $liste->getNom() . '</a></h4>';
+    }
+      
+  ?>
+
 </body>
 </html>
