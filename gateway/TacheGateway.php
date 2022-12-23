@@ -32,18 +32,18 @@ class TacheGateway
     }
 
     public function addTache(int $id, string $nom, string $description,int $idListe,bool $ischeck){
-        $req="INSERT INTO Tache VALUES(':id',':nom',':description',':idListe',':ischeck')";
+        $req="INSERT INTO Tache VALUES(':id',':nom',':description',':idliste',':ischeck')";
         $this->co->executeQuery($req,array(':id' => array($id,PDO::PARAM_INT),
                                             ':nom' => array($nom,PDO::PARAM_STR),
                                             ':description' => array($description,PDO::PARAM_STR),
-                                            ':idListe' => array($idListe,PDO::PARAM_INT),
+                                            ':idliste' => array($idListe,PDO::PARAM_INT),
                                             ':ischeck' => array($ischeck,PDO::PARAM_BOOL)
                                             ));
     } 
 
     public function deleteTache(int $idTache): void{
         $req="DELETE FROM Tache WHERE id = :idTache";
-        $this->co->executeQuery($req,array(':id' => array($idTache,PDO::PARAM_INT)));
+        $this->co->executeQuery($req,array(':idTache' => array($idTache,PDO::PARAM_INT)));
     } 
 
 }

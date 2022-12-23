@@ -92,6 +92,19 @@ class ListeGateway
             }
         } 
     }
+
+    public function addListe(string $nom, int $idUser,bool $isPrivate){
+        $req="INSERT INTO Liste (nom,userid,isprivate) VALUES(':nom',':userid',':isprivate')";
+        $this->co->executeQuery($req,array(':nom' => array($nom,PDO::PARAM_STR),
+                                            ':userid' => array($idUser,PDO::PARAM_INT),
+                                            ':isprivate' => array($isPrivate,PDO::PARAM_BOOL)
+                                            ));
+    } 
+
+    public function deleteListe(int $idListe): void{
+        $req="DELETE FROM Liste WHERE id = :idListe";
+        $this->co->executeQuery($req,array(':id' => array($idListe,PDO::PARAM_INT)));
+    } 
 } 
 
 ?>
