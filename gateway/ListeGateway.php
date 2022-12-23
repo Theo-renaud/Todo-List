@@ -80,6 +80,33 @@ class ListeGateway
             return $liste;
         }
     }
+
+    public function ListePrive(int $id){
+        $req="SELECT * FROM Liste WHERE isprivate=1 AND userid=:id";
+        $this->co->executeQuery($req,array(':id' => array($id,PDO::PARAM_INT)));
+        $listes=$this->co->getResults();
+        foreach($listes as $row){
+            $Listes[]=new Liste($row['id'],$row['nom'],$row['idUser'],$row['isPrivate'],$row['LesTaches']);
+            foreach($Listes as $l){
+                return $l === false ? null : $l;
+            }
+        } 
+    }
+
+    public function addListe(string $nom, int $idUser,bool $isPrivate){
+        $req="INSERT INTO Liste (nom,userid,isprivate) VALUES(':nom',':userid',':isprivate')";
+        $this->co->executeQuery($req,array(':nom' => array($nom,PDO::PARAM_STR),
+                                            ':userid' => array($idUser,PDO::PARAM_INT),
+                                            ':isprivate' => array($isPrivate,PDO::PARAM_BOOL)
+                                            ));
+    } 
+
+    public function deleteListe(int $idListe): void{
+        $req="DELETE FROM Tache WHERE idliste= :idListe";
+        $this->co->executeQuery($req,array(':idListe' => array($idListe,PDO::PARAM_INT)));
+        $req="DELETE FROM Liste WHERE id = :idListe";
+        $this->co->executeQuery($req,array(':idListe' => array($idListe,PDO::PARAM_INT)));
+    } 
 } 
 
 ?>

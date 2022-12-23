@@ -28,6 +28,14 @@ class ListeControlleur {
     public function creation(){
         require __DIR__ . "/../vues/AjoutListe.php";
     } 
+
+    public function deleteListe($id){
+        $this->listeGateway = new ListeGateway();
+
+        $this->listeGateway->deleteListe($id);
+
+        header("Location: /");
+    } 
 }
 
 ?>
