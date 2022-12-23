@@ -26,7 +26,35 @@ class ListeControlleur {
     }
 
     public function creation(){
-        require __DIR__ . "/../vues/AjoutListe.php";
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+            $this->listeGateway = new ListeGateway();
+
+            // $this->validation = new Validation();
+            // $this->validation->validationListe($_POST['nom']);
+
+            if(isset($_POST['isPrivate'])){
+                $isPrivate = 1;
+            }
+            else{
+                $isPrivate = 0;
+            }
+
+            if(isset($_SESSION['idUtilisateur'])){
+                $idUtilisateur = $_SESSION['idUtilisateur'];
+            }
+            else{
+                $idUtilisateur = 1;
+            }
+
+            $this->listeGateway->creeListe($_POST['nom'], $isPrivate, $idUtilisateur);
+
+            header("Location: /");
+        }
+        else{
+            require __DIR__ . '/../vues/AjoutListe.php';
+        }
     } 
 
     public function deleteListe($id){
@@ -36,6 +64,14 @@ class ListeControlleur {
 
         header("Location: /");
     } 
+
+    public function ajouterTache($id){
+        //$this->listeGateway = new ListeGateway();
+
+        //$this->listeGateway->ajouterTache($id);
+
+        //header("Location: /");
+    }
 }
 
 ?>

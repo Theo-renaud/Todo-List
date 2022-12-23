@@ -5,15 +5,14 @@ class Liste {
     private string $nom;
     private int $idUser;
     private int $isPrivate;
-    private array $lesTaches;
+    private ?array $lesTaches;
 
-    function __construct(int $id, string $nom, int $idUser, int $isPrivate,array $lesTaches)
-    {
+    function __construct(int $id, string $nom, int $idUser, int $isPrivate, ?array $lesTaches) {
         $this->id = $id;
         $this->nom = $nom;
         $this->idUser = $idUser;
         $this->isPrivate = $isPrivate;
-        $this->lesTaches= $lesTaches;
+        $this->lesTaches = $lesTaches;
     }
 
     public function setNom(string $nom): void {
@@ -44,7 +43,7 @@ class Liste {
         return $this->isPrivate;
     }
 
-    public function getLesTaches(): array {
+    public function getLesTaches(): ?array {
         return $this->lesTaches;
     }
 }

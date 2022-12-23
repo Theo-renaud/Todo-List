@@ -5,6 +5,7 @@
   </head>
   <body>
     <h1>Connexion</h1>
+    <a href='/'><button class='button'>Retour à l'accueil</button></a>
     <form enctype="multipart/form-data" action="" method="post" id="form">
       <label for="username">Nom d'utilisateur</label><br>
       <input type="text" id="username" name="nom"><br>

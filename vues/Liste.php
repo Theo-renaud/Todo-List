@@ -14,7 +14,7 @@
     
     <a href='/'><button class="btn btn-primary font-weight-bold">Retour à l'accueil</button></a>
 
-    <a href='/liste/deleteListe/<?= $liste->getId() ?> '><button class="btn btn-primary font-weight-bold red">Suppresion liste</button></a>
+    <a href='/liste/deleteListe/<?= $liste->getId() ?> '><button class="btn btn-primary font-weight-bold red">Suppression liste</button></a>
         <div class="page-content page-container" id="page-content">
             <div class="padding">
                 <div class="row container d-flex justify-content-center">
@@ -27,13 +27,15 @@
                                 <div class="list-wrapper">
                                     <ul class="d-flex flex-column-reverse todo-list">
                                         <?php 
-                                            foreach($liste->getLesTaches() as $tache):
-                                        ?>
-                                        <li>
-                                            <div class="form-check"> <label class="form-check-label"> <input class="checkbox" type="checkbox"> <?= $tache->getNom() ?> <i class="input-helper"></i></label> </div> <i class="remove mdi mdi-close-circle-outline"></i>
-                                        </li>
-                                        <?php
-                                            endforeach;
+                                            if($liste->getLesTaches() != null):
+                                                foreach($liste->getLesTaches() as $tache):
+                                        
+                                        echo'<li>
+                                            <div class="form-check"> <label class="form-check-label"> <input class="checkbox" type="checkbox">' . $tache->getNom() . '<i class="input-helper"></i></label> </div> <i class="remove mdi mdi-close-circle-outline"></i>
+                                        </li>';
+                                        
+                                                endforeach;
+                                            endif;
                                         ?>
                                     </ul>
                                 </div>

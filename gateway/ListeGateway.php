@@ -106,6 +106,16 @@ class ListeGateway
         $this->co->executeQuery($req,array(':idListe' => array($idListe,PDO::PARAM_INT)));
         $req="DELETE FROM Liste WHERE id = :idListe";
         $this->co->executeQuery($req,array(':idListe' => array($idListe,PDO::PARAM_INT)));
+    }
+    
+    public function creeListe(string $nom, int $isPrivate, int $idUtilisateur){
+        var_dump($nom, $isPrivate, $idUtilisateur);
+        $req="INSERT INTO Liste (nom,isprivate,userid) VALUES(:nom,:isprivate,:iduser)";
+        $this->co->executeQuery($req,array(':nom' => array($nom,PDO::PARAM_STR),
+                                            ':isprivate' => array($isPrivate,PDO::PARAM_INT),
+                                            ':iduser' => array($idUtilisateur,PDO::PARAM_INT),
+                                            ));
+        
     } 
 } 
 
