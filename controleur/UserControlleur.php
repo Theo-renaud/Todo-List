@@ -38,8 +38,11 @@ class UserControlleur
         }
     }
 
-    public function logout()
+    public function deconnexion()
     {
-        
+        session_unset();
+        session_destroy();
+
+        header("Location: /");
     }
 }

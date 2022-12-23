@@ -7,15 +7,27 @@ require __DIR__ . "/../config/Validation.php";
 class ListeControlleur {
     private ListeGateway $listeGateway;
 
-    public function liste($id){
+    public function listePublique($id){
         
         $this->listeGateway = new ListeGateway();
 
-        $liste = $this->listeGateway->ListeById($id);
+        $liste = $this->listeGateway->ListePubliqueById($id);
 
         require __DIR__ . "/../vues/Liste.php";
     }
 
+    public function listePrivee($id){
+        
+        $this->listeGateway = new ListeGateway();
+
+        $liste = $this->listeGateway->ListePriveeById($id);
+
+        require __DIR__ . "/../vues/Liste.php";
+    }
+
+    public function creation(){
+        header("Location: /");
+    } 
 }
 
 ?>

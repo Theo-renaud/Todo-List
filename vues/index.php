@@ -17,8 +17,8 @@
     ?>
   </p>
   <ul class="nav">
-    <li class="navItem"><a class="itemLink" href="#">A propos de Foukka (WIP)</a></li>
-    <li class="navItem"><a class="itemLink" href="/user/connexion">Log In</a></li>
+    <li class="navItem"><a class="itemLink" href="/user/connexion">Connexion</a></li>
+    <li class="navItem"><a class="itemLink" href="/user/deconnexion">Déconnexion</a></li>
   </ul>
   
   <h2>Les listes publiques</h2>
@@ -26,11 +26,27 @@
     <?php
       foreach($dVueListe as $liste):
     ?>
-      <li><a class="listeLink" href="/liste/liste/<?= $liste->getId(); ?>"><?= $liste->getNom() ?></a></li>
+      <li><a class="listeLink" href="/liste/listePublique/<?= $liste->getId(); ?>"><?= $liste->getNom() ?></a></li>
     <?php
       endforeach;
     ?>
   </ul>
+
+
+  <?php
+
+    if(isset($_SESSION["nomUtilisateur"])){
+      echo "<h2>Les listes privées</h2>";
+      echo "<ul>";
+      foreach($dVueListePrive as $liste){
+        echo "<li><a class='listeLink' href='/liste/listePrivee/" . $liste->getId() . "'>" . $liste->getNom() . "</a></li>";
+      }
+      echo "</ul>";
+    } 
+
+  ?>
+
+  <a href='/liste/creation'><button class='createButton'>Créer une liste</button></a>
 
 </body>
 </html>

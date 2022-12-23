@@ -11,7 +11,11 @@ class AccueilControlleur {
         
         $this->listeGateway = new ListeGateway();
 
-        $dVueListe = $this->listeGateway->ListePublic();
+        $dVueListe = $this->listeGateway->ListesPubliques();
+
+        if(isset($_SESSION['idUtilisateur'])){
+            $dVueListePrive = $this->listeGateway->ListesPriveesByUser($_SESSION['idUtilisateur']);
+        }
 
         require __DIR__ . "/../vues/index.php";
     }
