@@ -26,7 +26,7 @@ class ListeControlleur {
     }
 
     public function creation(){
-        header("Location: /");
+        require __DIR__ . "/../vues/AjoutListe.php";
     } 
 }
 
