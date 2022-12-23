@@ -39,7 +39,7 @@ class ListeControlleur {
                 $isPrivate = 0;
             }
 
-            if(isset($_SESSION['idUtilisateur'])){
+            if(isset($_SESSION['idUtilisateur']) && $isPrivate == 1){
                 $idUtilisateur = $_SESSION['idUtilisateur'];
             }
             else{
