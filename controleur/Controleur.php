@@ -5,7 +5,7 @@ session_start();
 $controllers = array(
   'user' => ['connexion', 'deconnexion'],
   'accueil' => ['accueil', 'error'],
-  'liste' => ['listePublique', 'listePrivee', 'creation']
+  'liste' => ['listePublique', 'listePrivee', 'creation','deleteListe']
 );
 
 // Parse the request URL to determine the controller and action
@@ -36,8 +36,8 @@ if (array_key_exists($controller, $controllers)) {
     include_once ucwords($controller) . 'Controlleur.php';
 
     // Create a new instance of the controller and call the action method
-    $klass = ucwords($controller) . 'Controlleur';
-    $obj = new $klass;
+    $class = ucwords($controller) . 'Controlleur';
+    $obj = new $class;
 
     if(isset($param)){
       $obj->$action($param);

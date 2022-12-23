@@ -28,6 +28,12 @@ class ListeControlleur {
     public function creation(){
         header("Location: /");
     } 
+
+    public function deleteListe($id){
+        $this->listeGateway = new ListeGateway();
+
+        $liste = $this->listeGateway->deleteListe($id);
+    } 
 }
 
 ?>
