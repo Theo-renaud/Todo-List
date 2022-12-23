@@ -1,4 +1,4 @@
-# Todo-List
+# Foukka
 
 Ceci un projet de deux personnes Théo Renaud et Lou Valade.
 
@@ -26,25 +26,3 @@ Chaque liste et chaque tâche doit être sauvegardée en base de données (pense
 En général dans une application de gestion de tâches, les tâches complétées sont barrées afin d’être distinguées des tâches restantes. Cela est faisable via CSS pur (i.e. : la page n’a pas besoin d’être actualisée, et l’utilisation de JavaScript n’est pas requise).
 
 La gestion des erreurs doit être complète. (champs vérifiés, connection à la BD,...)
-
-
-```mermaid
-erDiagram
-    Utilisateur }o--|{ Liste : prend
-    Utilisateur {
-        int id
-        string nom
-        string password
-        bool estAdmin
-    }
-    Liste }o--|{ Tache : prend
-    Liste {
-        int id
-        string nom
-    }
-    Tache {
-        int id
-        string nom
-        string description
-    }
-```
