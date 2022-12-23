@@ -1,89 +1,58 @@
 <?php
 
-class Controleur {
+session_start();
+// Set up an array of controllers and their corresponding action methods
+$controllers = array(
+  'user' => ['connexion', 'deconnexion'],
+  'accueil' => ['accueil', 'error'],
+  'liste' => ['listePublique', 'listePrivee', 'creation','deleteListe']
+);
 
-	function __construct() {
-		global $rep,$vues; // nécessaire pour utiliser variables globales
-	// on démarre ou reprend la session si necessaire (préférez utiliser un modèle pour gérer vos session ou cookies)
-		session_start();
+// Parse the request URL to determine the controller and action
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$uri = explode('/', $uri);
 
+// Get the controller and action from the request URL
+if (empty($uri[1]) || empty($uri[2])){
+  $controller = null;
+  $action = null;
+}
+else {
+  $controller = $uri[1];
+  $action = $uri[2];
+  if(!empty($uri[3])){
+    $param = $uri[3];
+  }
+} 
 
-		//debut
+// If the controller and action are not defined, use the default values
+if (!$controller) $controller = 'accueil';
+if (!$action) $action = 'accueil';
 
-		//on initialise un tableau d'erreur
-		$dVueEreur = array ();
+// Check if the requested controller and action are valid
+if (array_key_exists($controller, $controllers)) {
+  if (in_array($action, $controllers[$controller])) {
+    // If the controller and action are valid, include the corresponding file
+    include_once ucwords($controller) . 'Controlleur.php';
 
-		try{
-			$action=$_REQUEST['action'];
+    // Create a new instance of the controller and call the action method
+    $class = ucwords($controller) . 'Controlleur';
+    $obj = new $class;
 
-			switch($action) {
+    if(isset($param)){
+      $obj->$action($param);
+    }
+    else{
+      $obj->$action();
+    }
 
-			//pas d'action, on réinitialise 1er appel
-				case NULL:
-					$this->Reinit();
-					break;
-
-
-				case "validationFormulaire":
-					$this->ValidationFormulaire($dVueEreur);
-					break;
-
-				//mauvaise action
-				default:
-					$dVueEreur[] =	"Erreur d'appel php";
-				require ($rep.$vues['vuephp1']);
-				
-				break;
-			}
-
-		} catch (PDOException $e)
-		{
-			//si erreur BD, pas le cas ici
-			$dVueEreur[] =	"Erreur inattendue!!! ";
-			require ($rep.$vues['erreur']);
-
-		}
-		catch (Exception $e2)
-		{
-			$dVueEreur[] =	"Erreur inattendue!!! ";
-			require ($rep.$vues['erreur']);
-		}
-
-
-
-		exit(0);
-	}
-
-
-	function Reinit() {
-		global $rep,$vues; // nécessaire pour utiliser variables globales
-
-		$dVue = array (
-			'nom' => "",
-			'age' => 0,
-			);
-			require ($rep.$vues['vuephp1']);
-	}
-
-	function ValidationFormulaire(array $dVueEreur) {
-		global $rep,$vues;
-
-
-		//si exception, ca remonte !!!
-		$nom=$_POST['txtNom']; // txtNom = nom du champ texte dans le formulaire
-		$age=$_POST['txtAge'];
-		Validation::val_form($nom,$age,$dVueEreur);
-
-		$model = new Simplemodel();
-		$data=$model->get_data();
-
-		$dVue = array (
-			'nom' => $nom,
-			'age' => $age,
-				'data' => $data,
-			);
-			require ($rep.$vues['vuephp1']);
-	}
+  } else {
+    // If the action is not valid, include the error file
+	echo "HE MERDE 1";
+  }
+} else {
+  // If the controller is not valid, include the error file
+  echo "HE MERDE 2";
 
 }
 

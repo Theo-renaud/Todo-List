@@ -8,11 +8,15 @@
 <?php
 if (isset($dVueEreur)) {
     foreach ($dVueEreur as $value){
-        echo $value;
+        echo $value . "<br>";
     }
 }
+
+echo "<a href='/accueil/accueil'>Retour à l'accueil</a>";
+
 ?>
 
 
 
-</body> </html>
+</body> 
+</html>

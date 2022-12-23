@@ -3,16 +3,16 @@
 class Liste {
     private int $id;
     private string $nom;
-    private int $idUtilisateur;
-    private bool $isPrivate;
-    private Tache $lesTaches;
+    private int $idUser;
+    private int $isPrivate;
+    private ?array $lesTaches;
 
-    function __construct(int $id, string $nom, string $idUtilisateur, int $isPrivate)
-    {   
+    function __construct(int $id, string $nom, int $idUser, int $isPrivate, ?array $lesTaches) {
         $this->id = $id;
         $this->nom = $nom;
-        $this->description = $idUtilisateur;
-        $this->idListe = $isPrivate;
+        $this->idUser = $idUser;
+        $this->isPrivate = $isPrivate;
+        $this->lesTaches = $lesTaches;
     }
 
     public function setNom(string $nom): void {
@@ -41,6 +41,10 @@ class Liste {
 
     public function getIsPrivate(): bool {
         return $this->isPrivate;
+    }
+
+    public function getLesTaches(): ?array {
+        return $this->lesTaches;
     }
 }
 
