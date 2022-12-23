@@ -102,8 +102,10 @@ class ListeGateway
     } 
 
     public function deleteListe(int $idListe): void{
+        $req="DELETE FROM Tache WHERE idliste= :idListe";
+        $this->co->executeQuery($req,array(':idListe' => array($idListe,PDO::PARAM_INT)));
         $req="DELETE FROM Liste WHERE id = :idListe";
-        $this->co->executeQuery($req,array(':id' => array($idListe,PDO::PARAM_INT)));
+        $this->co->executeQuery($req,array(':idListe' => array($idListe,PDO::PARAM_INT)));
     } 
 } 
 
