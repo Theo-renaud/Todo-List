@@ -6,6 +6,7 @@ require __DIR__ . "/../config/Validation.php";
 
 class ListeControlleur {
     private ListeGateway $listeGateway;
+    private TacheGateway $tacheGateway;
 
     public function listePublique($id){
         
@@ -30,9 +31,6 @@ class ListeControlleur {
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             $this->listeGateway = new ListeGateway();
-
-            // $this->validation = new Validation();
-            // $this->validation->validationListe($_POST['nom']);
 
             if(isset($_POST['isPrivate'])){
                 $isPrivate = 1;
@@ -65,12 +63,12 @@ class ListeControlleur {
         header("Location: /");
     } 
 
-    public function ajouterTache($id){
-        //$this->listeGateway = new ListeGateway();
+    public function ajouterTache($idListe){
+        $this->tacheGateway = new TacheGateway();
 
-        //$this->listeGateway->ajouterTache($id);
+        $this->tacheGateway->addTache($_POST['tache'],'WIP', $idListe,0);
 
-        //header("Location: /");
+        header("Location: /");
     }
 }
 

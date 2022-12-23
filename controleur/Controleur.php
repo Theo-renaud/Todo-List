@@ -5,7 +5,7 @@ session_start();
 $controllers = array(
   'user' => ['connexion', 'deconnexion'],
   'accueil' => ['accueil', 'error'],
-  'liste' => ['listePublique', 'listePrivee', 'creation','deleteListe']
+  'liste' => ['listePublique', 'listePrivee', 'creation','deleteListe','ajouterTache'],
 );
 
 // Parse the request URL to determine the controller and action

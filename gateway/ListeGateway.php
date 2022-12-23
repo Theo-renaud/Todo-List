@@ -93,14 +93,6 @@ class ListeGateway
         } 
     }
 
-    public function addListe(string $nom, int $idUser,bool $isPrivate){
-        $req="INSERT INTO Liste (nom,userid,isprivate) VALUES(':nom',':userid',':isprivate')";
-        $this->co->executeQuery($req,array(':nom' => array($nom,PDO::PARAM_STR),
-                                            ':userid' => array($idUser,PDO::PARAM_INT),
-                                            ':isprivate' => array($isPrivate,PDO::PARAM_BOOL)
-                                            ));
-    } 
-
     public function deleteListe(int $idListe): void{
         $req="DELETE FROM Tache WHERE idliste= :idListe";
         $this->co->executeQuery($req,array(':idListe' => array($idListe,PDO::PARAM_INT)));
@@ -109,7 +101,6 @@ class ListeGateway
     }
     
     public function creeListe(string $nom, int $isPrivate, int $idUtilisateur){
-        var_dump($nom, $isPrivate, $idUtilisateur);
         $req="INSERT INTO Liste (nom,isprivate,userid) VALUES(:nom,:isprivate,:iduser)";
         $this->co->executeQuery($req,array(':nom' => array($nom,PDO::PARAM_STR),
                                             ':isprivate' => array($isPrivate,PDO::PARAM_INT),
