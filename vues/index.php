@@ -26,7 +26,7 @@
     <?php
       foreach($dVueListe as $liste):
     ?>
-      <li><a class="listeLink" href="/liste/liste"><?= $liste->getNom() ?></a></li>
+      <li><a class="listeLink" href="/liste/liste/<?= $liste->getId(); ?>"><?= $liste->getNom() ?></a></li>
     <?php
       endforeach;
     ?>

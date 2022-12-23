@@ -28,6 +28,18 @@ class ListeGateway
         }
         return $Listes;
     }
+
+    public function ListeById(int $id) : ?Liste{
+        $req="SELECT * FROM Liste WHERE id = :id AND isprivate=0";
+        $this->co->executeQuery($req,array(':id' => array($id,PDO::PARAM_INT)));
+        $listes=$this->co->getResults();
+        foreach($listes as $row){
+            $Tache=$this->tacheGateway->getTachesByIdListe($row['id']);
+            $liste=new Liste($row['id'],$row['nom'],$row['userid'],$row['isprivate'],$Tache);
+        }
+
+        return $liste;
+    }
 } 
 
 ?>

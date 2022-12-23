@@ -14,9 +14,6 @@
     
     <a href='/'><button class="btn btn-primary font-weight-bold">Retour à l'accueil</button></a>
     
-    <?php
-        foreach($dVueListe as $liste):
-    ?>
         <div class="page-content page-container" id="page-content">
             <div class="padding">
                 <div class="row container d-flex justify-content-center">
@@ -45,10 +42,7 @@
                 </div>
             </div>
         </div>
-    
-    <?php
-        endforeach;
-    ?>
+        
         <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
         <script type='text/javascript' src='/vues/js/Accueil.js'></script>                           
 	</body>

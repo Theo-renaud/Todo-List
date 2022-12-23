@@ -7,11 +7,11 @@ require __DIR__ . "/../config/Validation.php";
 class ListeControlleur {
     private ListeGateway $listeGateway;
 
-    public function liste(){
+    public function liste($id){
         
         $this->listeGateway = new ListeGateway();
 
-        $dVueListe = $this->listeGateway->ListePublic();
+        $liste = $this->listeGateway->ListeById($id);
 
         require __DIR__ . "/../vues/Liste.php";
     }
