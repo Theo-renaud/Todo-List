@@ -23,7 +23,8 @@
                             <div class="card-body">
                                 
                                 <h4 class="card-title"><?=$liste->getNom()?></h4>
-                                <div class="add-items d-flex"> <input type="text" class="form-control todo-list-input" placeholder="Ajoutez un élément"> <button class="add btn btn-primary font-weight-bold todo-list-add-btn">Ajoutez</button> </div>
+                                <form enctype="multipart/form-data" action="/liste/ajouterTache/<?= $liste->getId() ?>" method="post" id="form">
+                                <div class="add-items d-flex"> <input name="tache" class="form-control" placeholder="Ajoutez un élément"> <button type="submit" class="add btn btn-primary font-weight-bold">Ajoutez</button> </div>
                                 <div class="list-wrapper">
                                     <ul class="d-flex flex-column-reverse todo-list">
                                         <?php 

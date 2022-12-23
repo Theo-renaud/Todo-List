@@ -31,10 +31,9 @@ class TacheGateway
         }
     }
 
-    public function addTache(int $id, string $nom, string $description,int $idListe,bool $ischeck){
-        $req="INSERT INTO Tache VALUES(':id',':nom',':description',':idliste',':ischeck')";
-        $this->co->executeQuery($req,array(':id' => array($id,PDO::PARAM_INT),
-                                            ':nom' => array($nom,PDO::PARAM_STR),
+    public function addTache(string $nom, string $description, int $idListe, bool $ischeck){
+        $req="INSERT INTO Tache (nom,description,idliste,ischeck) VALUES(:nom,:description,:idliste,:ischeck)";
+        $this->co->executeQuery($req,array( ':nom' => array($nom,PDO::PARAM_STR),
                                             ':description' => array($description,PDO::PARAM_STR),
                                             ':idliste' => array($idListe,PDO::PARAM_INT),
                                             ':ischeck' => array($ischeck,PDO::PARAM_BOOL)

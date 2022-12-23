@@ -14,12 +14,9 @@
         
         // $.ajax({
         //   type: "POST",
-        //   url: "/liste/ajouterTache/",
+        //   url: "/liste/ajouterTache",
         //   data: item,
-        //   dataType: "json",
-        //   success: function (response) {
-            
-        //   }
+        //   dataType: "json"
         // });
       }
 

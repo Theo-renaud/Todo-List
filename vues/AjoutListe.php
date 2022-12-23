@@ -11,7 +11,7 @@
       <input type="text" id="username" name="nom"><br>
       <?php 
         if(isset($_SESSION['idUtilisateur'])): ?>      
-          <label for="status">Cochez pour rendre la liste publique</label>
+          <label for="status">Cochez pour rendre la liste privée</label>
           <input type="checkbox" id="status" name="isPrivate">
       <?php endif; ?>
       <button type="submit" value="AJOUTER">Ajouter</button>
