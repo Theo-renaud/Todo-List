@@ -5,9 +5,9 @@ class Liste {
     private string $nom;
     private int $idUser;
     private int $isPrivate;
-    private Tache $lesTaches;
+    private array $lesTaches;
 
-    function __construct(int $id, string $nom, int $idUser, int $isPrivate,Tache $lesTaches)
+    function __construct(int $id, string $nom, int $idUser, int $isPrivate,array $lesTaches)
     {
         $this->id = $id;
         $this->nom = $nom;
@@ -15,7 +15,6 @@ class Liste {
         $this->isPrivate = $isPrivate;
         $this->lesTaches= $lesTaches;
     }
-    
 
     public function setNom(string $nom): void {
         $this->nom = $nom;
@@ -43,6 +42,10 @@ class Liste {
 
     public function getIsPrivate(): bool {
         return $this->isPrivate;
+    }
+
+    public function getLesTaches(): array {
+        return $this->lesTaches;
     }
 }
 

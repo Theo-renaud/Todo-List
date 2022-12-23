@@ -4,7 +4,8 @@ session_start();
 // Set up an array of controllers and their corresponding action methods
 $controllers = array(
   'user' => ['connexion', 'deconnexion'],
-  'accueil' => ['accueil', 'error']
+  'accueil' => ['accueil', 'error'],
+  'liste' => ['listePublique', 'listePrivee', 'creation']
 );
 
 // Parse the request URL to determine the controller and action
@@ -19,6 +20,9 @@ if (empty($uri[1]) || empty($uri[2])){
 else {
   $controller = $uri[1];
   $action = $uri[2];
+  if(!empty($uri[3])){
+    $param = $uri[3];
+  }
 } 
 
 // If the controller and action are not defined, use the default values
@@ -34,7 +38,13 @@ if (array_key_exists($controller, $controllers)) {
     // Create a new instance of the controller and call the action method
     $klass = ucwords($controller) . 'Controlleur';
     $obj = new $klass;
-    $obj->$action();
+
+    if(isset($param)){
+      $obj->$action($param);
+    }
+    else{
+      $obj->$action();
+    }
 
   } else {
     // If the action is not valid, include the error file
