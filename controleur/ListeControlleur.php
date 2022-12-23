@@ -32,7 +32,9 @@ class ListeControlleur {
     public function deleteListe($id){
         $this->listeGateway = new ListeGateway();
 
-        $liste = $this->listeGateway->deleteListe($id);
+        $this->listeGateway->deleteListe($id);
+
+        header("Location: /");
     } 
 }
 

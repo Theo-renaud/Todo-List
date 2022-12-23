@@ -14,7 +14,7 @@
     
     <a href='/'><button class="btn btn-primary font-weight-bold">Retour à l'accueil</button></a>
 
-    <a href='/Liste/deleteListe/' <?php $liste->getId() ?> ><button class="btn btn-primary font-weight-bold">Suppresion liste</button></a>
+    <a href='/liste/deleteListe/ <?php $liste->getId() ?> '><button class="btn btn-primary font-weight-bold">Suppresion liste</button></a>
         <div class="page-content page-container" id="page-content">
             <div class="padding">
                 <div class="row container d-flex justify-content-center">
