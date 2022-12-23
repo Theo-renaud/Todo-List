@@ -6,7 +6,7 @@
 </head>
 <body>
   <h1>Bienvenue sur Foukka</h1>
-  <p>Foukka est une to-do list comme il en existe des milliers. Celle-ci n'a aucune particularité qui la distingue des autres To-Do list.</p>
+  <p>Foukka est une to-do list comme il en existe des milliers. Celle-ci n'a aucune particularité qui la distingue des autres to-do list.</p>
   <p>
     <?php 
       if(isset($_SESSION["nomUtilisateur"])):
@@ -24,12 +24,17 @@
   <h2>Les listes publiques</h2>
   <ul>
     <?php
-      foreach($dVueListe as $liste):
-    ?>
-      <li><a class="listeLink" href="/liste/listePublique/<?= $liste->getId(); ?>"><?= $liste->getNom() ?></a></li>
-    <?php
-      endforeach;
-    ?>
+      if($dVueListe == null){
+        echo "Aucune liste publique";
+      }else {
+        foreach($dVueListe as $liste):
+      ?>
+            <li><a class="listeLink" href="/liste/listePublique/<?= $liste->getId(); ?>"><?= $liste->getNom() ?></a></li>
+          <?php
+            endforeach;
+          }
+          ?>
+      
   </ul>
 
 

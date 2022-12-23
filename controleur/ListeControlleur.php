@@ -7,6 +7,8 @@ require __DIR__ . "/../config/Validation.php";
 class ListeControlleur {
     private ListeGateway $listeGateway;
     private TacheGateway $tacheGateway;
+    private Validation $validation;
+
 
     public function listePublique($id){
         
@@ -31,6 +33,7 @@ class ListeControlleur {
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             $this->listeGateway = new ListeGateway();
+            $this->validation = new Validation();
 
             if(isset($_POST['isPrivate'])){
                 $isPrivate = 1;
@@ -45,6 +48,8 @@ class ListeControlleur {
             else{
                 $idUtilisateur = 1;
             }
+
+            $this->validation->validationListe($_POST['nom']);
 
             $this->listeGateway->creeListe($_POST['nom'], $isPrivate, $idUtilisateur);
 
