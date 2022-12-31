@@ -48,11 +48,11 @@ if (array_key_exists($controller, $controllers)) {
 
   } else {
     // If the action is not valid, include the error file
-	echo "HE MERDE 1";
+	echo "ERREUR NON GÉRÉ 1";
   }
 } else {
   // If the controller is not valid, include the error file
-  echo "HE MERDE 2";
+  echo "ERREUR NON GÉRÉ 2";
 
 }
 
